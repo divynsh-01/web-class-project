@@ -1,4 +1,5 @@
 import React from "react";
+import PropTypes from "prop-types"; // Import PropTypes
 import "./About.css";
 import play_icon from "../../assets/play-icon.png";
 import about from "../../assets/about.jpg";
@@ -7,10 +8,11 @@ const About = (props) => {
   return (
     <div className="about">
       <div className="about-left">
-        <img src={about} className="about-img"></img>
+        <img src={about} className="about-img" alt="About University"></img>
         <img
           src={play_icon}
           className="play-icon"
+          alt="Play Icon"
           onClick={() => {
             props.setPlayState(true);
           }}
@@ -37,6 +39,9 @@ const About = (props) => {
   );
 };
 
-
+// ✅ Add prop validation
+About.propTypes = {
+  setPlayState: PropTypes.func.isRequired, // Expecting a function
+};
 
 export default About;
